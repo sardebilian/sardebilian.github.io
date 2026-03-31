@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaudi Mahdavi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1a1a18;
+      --muted: #6b6b65;
+      --rule: #e0ddd8;
+      --bg: #faf9f7;
+      --accent: #b85c2c;
+      --max: 720px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 3rem;
+      background: rgba(250,249,247,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+    }
+    .nav-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── SECTIONS ── */
+    section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      padding-top: 12rem;
+      padding-bottom: 5rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.4rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.6rem;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 2.4rem;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .tag {
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+    }
+
+    /* ── DIVIDER ── */
+    .rule {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 0 2rem;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2.8rem;
+    }
+
+    /* ── ABOUT ── */
+    #about p {
+      font-size: 1.05rem;
+      color: #3a3a36;
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+    #about p:last-child { margin-bottom: 0; }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 2.8rem; }
+    .exp-item {}
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.3rem;
+    }
+    .exp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .exp-date {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .exp-company {
+      font-size: 0.82rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .exp-bullets li {
+      font-size: 0.95rem;
+      color: #4a4a46;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--rule);
+    }
+
+    /* ── PROJECTS ── */
+    .project-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .project-item {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+    }
+    .project-item:first-child { border-top: 1px solid var(--rule); }
+    .project-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+    }
+    .project-venue {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .project-desc {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 520px;
+    }
+    .project-link {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1px;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .project-link:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 3rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .footer-links { display: flex; gap: 1.8rem; }
+    .footer-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--ink); }
+
+    /* ── FADE IN ── */
+    .fade {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 600px) {
+      nav { padding: 1.2rem 1.4rem; }
+      .nav-links { gap: 1.4rem; }
+      section { padding: 5rem 1.4rem; }
+      #hero { padding-top: 9rem; }
+      .project-item { grid-template-columns: 1fr; }
+      footer { padding: 2.4rem 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="#hero">Shaudi Mahdavi</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Research</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <p class="hero-eyebrow fade">New York City</p>
+    <h1 class="fade">Product &amp; AI,<br>built from first principles.</h1>
+    <p class="hero-sub fade">Senior PM and former engineer specializing in agent systems, LLM evaluation, and developer-facing AI platforms. 10+ years shipping foundation models and ML infrastructure at scale.</p>
+    <div class="hero-tags fade">
+      <span class="tag">Agent Systems</span>
+      <span class="tag">LLM Evaluation</span>
+      <span class="tag">Developer Experience</span>
+      <span class="tag">AI Safety</span>
+      <span class="tag">ML Infrastructure</span>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label fade">About</p>
+    <p class="fade">I'm a Product Manager and former Engineer with deep roots in AI and ML systems — from federally-deployed open-source developer tooling to agentic orchestration frameworks used by millions of customers.</p>
+    <p class="fade">I've built and shipped foundation models, ML platforms, and agent infrastructure alongside engineers at SoFi, Block, and Twitter. My work spans the full stack: data pipelines, model evaluation, API design, and the human research needed to make products people actually want to use.</p>
+    <p class="fade">I hold a BS in Mathematics (Computer Science focus) from MIT, and have published and presented at NeurIPS, ACL, KDD, and the Trusted AI Symposium.</p>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label fade">Experience</p>
+    <div class="exp-list">
+
+      <div class="exp-item fade">
+        <div class="exp-header">
+          <span class="exp-title">Sr. Principal PM, AI/Agents</span>
+          <span class="exp-date">2025 – Present</span>
+        </div>
+        <div class="exp-company">SoFi · New York / San Francisco</div>
+        <ul class="exp-bullets">
+          <li>Leading cross-company agentic AI R&amp;D and LLM product vision for products serving millions of customers, coordinating 40+ engineers across ML research and infrastructure teams.</li>
+          <li>Architected agent orchestration framework including tool integration, real-time reasoning APIs, guardrails engine, memory and context management, and escalation protocols.</li>
+          <li>Built and shipped model evaluation pipeline encompassing systematic benchmarking, LLM-as-judge frameworks, and curated evaluation datasets for pre-deployment quality assurance.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item fade">
+        <div class="exp-header">
+          <span class="exp-title">Sr. Staff Product Lead (Director), ML R&amp;D</span>
+          <span class="exp-date">2023 – 2025</span>
+        </div>
+        <div class="exp-company">Block (Square / Cash App) · New York</div>
+        <ul class="exp-bullets">
+          <li>Drove LLMs-as-classifiers research across model sizes (410M–2.8B parameters); shipped classification system improving accuracy over BERT baseline.</li>
+          <li>Led ML platform and R&amp;D across ~30 engineers to productionize ranking, search, and deep learning recommendation systems for a 0→1 commerce experience.</li>
+          <li>Built LLM evaluation pipelines including bias-mitigation benchmarks and safety assessments, establishing governance standards for responsible AI deployment.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item fade">
+        <div class="exp-header">
+          <span class="exp-title">Product Lead, Cortex ML Research</span>
+          <span class="exp-date">2021 – 2023</span>
+        </div>
+        <div class="exp-company">Twitter · New York</div>
+        <ul class="exp-bullets">
+          <li>Shipped TwHIN embedding-based foundation model from research to production; built evaluation frameworks resulting in 1M+ additional monthly active users; published at KDD.</li>
+          <li>Co-invented graph-based friend-finding algorithm (provisional patent); built novel evaluation tasks assessing model quality across fairness, relevance, and safety dimensions.</li>
+          <li>Managed multimillion-dollar external research partnerships with Mila, UCSD, and Oxford.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item fade">
+        <div class="exp-header">
+          <span class="exp-title">Lead Research PM / Interim Engineering Manager</span>
+          <span class="exp-date">2017 – 2021</span>
+        </div>
+        <div class="exp-company">Whirlwind (MIT Media Lab / U.S. Census) · Suitland, MD</div>
+        <ul class="exp-bullets">
+          <li>Designed and open-sourced a developer-facing bias-mitigation toolkit adopted across federal agencies and nominated for the U.S. InnovateIT award.</li>
+          <li>Identified and mitigated failure modes impacting production reliability and security across high-stakes government deployments.</li>
+          <li>Pitched and was awarded 4 major research grants; led collaborations with Microsoft Research, Carnegie Mellon, and MIT CSAIL.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- PROJECTS / RESEARCH -->
+  <section id="projects">
+    <p class="section-label fade">Research &amp; Projects</p>
+    <div class="project-grid">
+
+      <div class="project-item fade">
+        <div>
+          <div class="project-name">Selective Action Policies for Tool-using Agents via Variant-Based Uncertainty</div>
+          <div class="project-venue">Trusted AI Symposium, 2026</div>
+          <p class="project-desc">Introduces a disagreement-based uncertainty signal derived from cross-variant behavioral divergence, achieving AUROC of 0.75–0.90 for predicting downstream errors. Disagreement-gated policies reduce failure rates by over 50% at moderate coverage without model retraining.</p>
+        </div>
+      </div>
+
+      <div class="project-item fade">
+        <div>
+          <div class="project-name">TwHIN: Twitter Heterogeneous Information Network Embeddings</div>
+          <div class="project-venue">ACM KDD</div>
+          <p class="project-desc">Embedding-based foundation model for personalized recommendation at Twitter scale. Shipped from research to production, contributing to 1M+ additional monthly active users.</p>
+        </div>
+      </div>
+
+      <div class="project-item fade">
+        <div>
+          <div class="project-name">Federal Bias-Mitigation Toolkit</div>
+          <div class="project-venue">MIT Media Lab / U.S. Census · Open Source</div>
+          <p class="project-desc">Open-sourced developer-facing toolkit enabling engineers to evaluate and audit ML models for bias during development. Adopted across federal agencies; nominated for U.S. InnovateIT award.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Shaudi Mahdavi</span>
+
+  </footer>
+
+  <script>
+    const els = document.querySelectorAll('.fade');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
